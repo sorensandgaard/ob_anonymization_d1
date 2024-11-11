@@ -5,7 +5,7 @@ import os
 def create_file(file_name):
     with open(file_name, 'w') as outfile:
         outfile.write(f'1. Created dataset file {file_name}.\n')
-	outfile.write(f'Testing whether this works')
+        outfile.write(f'Testing whether this works')
 
 
 def materialize_dataset(output_dir, name):
