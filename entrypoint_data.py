@@ -26,6 +26,7 @@ def materialize_dataset(output_dir, name):
     data_R1_file = os.path.join(output_dir, R1_reads)
     data_R2_file = os.path.join(output_dir, R2_reads)
 
+    print("Testing whether I can print to the snakemake terminal")
     create_file(data_R1_file,R1_url)
     create_file(data_R2_file,R2_url)
 
