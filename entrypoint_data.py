@@ -1,26 +1,30 @@
 import argparse
 import os
 
+def create_file(out_filename,in_filename):
 
-def create_file(file_name):
-    with open(file_name, 'w') as outfile:
-        outfile.write(f'1. Created dataset file {file_name}.\n')
-        outfile.write(f'Testing whether this works')
+    with open(in_filename,'r') as infile, open(out_filename,'w') as outfile: 
+        for line in infile:
+            outfile.write(line)
+
+#    with open(file_name, 'w') as outfile:
+#        outfile.write(f'1. Created dataset file {file_name}.\n')
+#        outfile.write(f'Testing whether this works')
 
 
 def materialize_dataset(output_dir, name):
     # Create the output directory if it doesn't exist
     os.makedirs(output_dir, exist_ok=True)
 
+    R1_reads = "TEST_S1_L001_R1_001.fastq.gz"
+    R2_reads = "TEST_S1_L001_R2_001.fastq.gz"
+
     # Create dataset files
-    data_counts_file = os.path.join(output_dir, f'{name}.txt.gz')
-    data_meta_file = os.path.join(output_dir, f'{name}.meta.json')
-    data_specific_params_file = os.path.join(output_dir, f'{name}_params.txt')
+    data_R1_file = os.path.join(output_dir, R1_reads)
+    data_R2_file = os.path.join(output_dir, R2_reads)
 
-    create_file(data_counts_file)
-    create_file(data_meta_file)
-    create_file(data_specific_params_file)
-
+    create_file(data_R1_file,R1_reads)
+    create_file(data_R2_file,R2_reads)
 
 def main():
     # Create argument parser
