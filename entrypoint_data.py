@@ -26,8 +26,8 @@ def materialize_dataset(output_dir, name):
 #    data_R1_file = os.path.join(output_dir, R1_reads)
 #    data_R2_file = os.path.join(output_dir, R2_reads)
 
-    data_R1_file = os.path.join(output_dir, f'{name}.R1.fastq.gz')
-    data_R2_file = os.path.join(output_dir, f'{name}.R2.fastq.gz')
+    data_R1_file = os.path.join(output_dir, f'{name}_S1_L001_R1_001.fastq.gz')
+    data_R2_file = os.path.join(output_dir, f'{name}_S1_L001_R2_001.fastq.gz')
 
     create_file(data_R1_file,R1_url)
     create_file(data_R2_file,R2_url)
