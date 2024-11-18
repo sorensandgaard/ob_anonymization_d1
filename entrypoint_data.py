@@ -16,7 +16,6 @@ def materialize_dataset(output_dir, name):
     # Create the output directory if it doesn't exist
     os.makedirs(output_dir, exist_ok=True)
 
-    #R1_url = "https://github.com/sorensandgaard/ob_anonymization_dataloss_d1/blob/main/TEST_S1_L001_R1_001.fastq.gz"
     R1_url = "https://raw.githubusercontent.com/sorensandgaard/ob_anonymization_dataloss_d1/main/TEST_S1_L001_R1_001.fastq.gz"
     R2_url = "https://raw.githubusercontent.com/sorensandgaard/ob_anonymization_dataloss_d1/main/TEST_S1_L001_R2_001.fastq.gz"
 
