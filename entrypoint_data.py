@@ -4,10 +4,8 @@ import requests
 import subprocess
 
 def create_file(out_filename,in_url):
-
     r = requests.get(in_url, allow_redirects=True)
     open(out_filename, 'wb').write(r.content)
-
 
 def materialize_dataset(output_dir, name):
     # Create the output directory if it doesn't exist
@@ -24,6 +22,10 @@ def materialize_dataset(output_dir, name):
 
     create_file(data_R1_file,R1_url)
     create_file(data_R2_file,R2_url)
+    create_file(script_R_file,R_script_url)
+
+    R_script_url = "https://raw.githubusercontent.com/sorensandgaard/ob_anonymization_dataloss_P1_cellranger/main/initialize_seurat_object.R"
+    script_R_file = os.path.join(output_dir, f'initialize_seurat_object.R')
     create_file(script_R_file,R_script_url)
 
     # Temporarily: Try to run R-script
