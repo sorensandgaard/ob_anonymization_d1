@@ -27,7 +27,7 @@ def materialize_dataset(output_dir, name):
     create_file(script_R_file,R_script_url)
 
     # Temporarily: Try to run R-script
-    R_command = "Rscript {script_R_file}/testing.R"
+    R_command = f"Rscript {script_R_file}/testing.R"
     a = subprocess.run(R_command.split(),capture_output=True,text=True)
 
     content = a.stdout
