@@ -12,6 +12,7 @@ def create_file(out_filename,in_url):
 def materialize_dataset(output_dir, name):
     # Create the output directory if it doesn't exist
     os.makedirs(output_dir, exist_ok=True)
+    log_file = os.path.join(output_dir, f'{name}.log.txt')
 
     R1_url = "https://raw.githubusercontent.com/sorensandgaard/ob_anonymization_dataloss_d1/main/TEST_S1_L001_R1_001.fastq.gz"
     R2_url = "https://raw.githubusercontent.com/sorensandgaard/ob_anonymization_dataloss_d1/main/TEST_S1_L001_R2_001.fastq.gz"
@@ -25,6 +26,11 @@ def materialize_dataset(output_dir, name):
     # Temporarily: Try to run R-script
     R_command = "Rscript testing.R"
     a = subprocess.run(R_command.split(),capture_output=True,text=True)
+
+    content = a.stdout
+
+    with open(log_file, 'w') as file:
+        file.write(content)
 
 def main():
     # Create argument parser
