@@ -16,15 +16,18 @@ def materialize_dataset(output_dir, name):
 
     R1_url = "https://raw.githubusercontent.com/sorensandgaard/ob_anonymization_dataloss_d1/main/TEST_S1_L001_R1_001.fastq.gz"
     R2_url = "https://raw.githubusercontent.com/sorensandgaard/ob_anonymization_dataloss_d1/main/TEST_S1_L001_R2_001.fastq.gz"
+    R_script_url = "https://raw.githubusercontent.com/sorensandgaard/ob_anonymization_dataloss_d1/main/testing.R"
 
     data_R1_file = os.path.join(output_dir, f'{name}_S1_L001_R1_001.fastq.gz')
     data_R2_file = os.path.join(output_dir, f'{name}_S1_L001_R2_001.fastq.gz')
+    script_R_file = os.path.join(output_dir, f'testing.R')
 
     create_file(data_R1_file,R1_url)
     create_file(data_R2_file,R2_url)
+    create_file(script_R_file,R_script_url)
 
     # Temporarily: Try to run R-script
-    R_command = "Rscript testing.R"
+    R_command = "Rscript {script_R_file}/testing.R"
     a = subprocess.run(R_command.split(),capture_output=True,text=True)
 
     content = a.stdout
