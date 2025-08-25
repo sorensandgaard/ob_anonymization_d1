@@ -11,7 +11,7 @@ def materialize_dataset(output_dir, name):
     # Create the output directory if it doesn't exist
     os.makedirs(output_dir, exist_ok=True)
 
-    command = f"{output_dir}/touch test.txt"
+    command = f"touch {output_dir}test.txt"
     a = subprocess.run(command.split(),capture_output=True,text=True)
 
 def main():
