@@ -11,27 +11,8 @@ def materialize_dataset(output_dir, name):
     # Create the output directory if it doesn't exist
     os.makedirs(output_dir, exist_ok=True)
 
-    R1_url = "https://raw.githubusercontent.com/sorensandgaard/ob_anonymization_dataloss_d1/main/TEST_S1_L001_R1_001.fastq.gz"
-    R2_url = "https://raw.githubusercontent.com/sorensandgaard/ob_anonymization_dataloss_d1/main/TEST_S1_L001_R2_001.fastq.gz"
-
-    data_R1_file = os.path.join(output_dir, f'{name}_S1_L001_R1_001.fastq.gz')
-    data_R2_file = os.path.join(output_dir, f'{name}_S1_L001_R2_001.fastq.gz')
-
-    create_file(data_R1_file,R1_url)
-    create_file(data_R2_file,R2_url)
-
-    # Temporarily: Try to run R-script
-    # log_file = os.path.join(output_dir, f'{name}.log.txt')
-    # R_script_url = "https://raw.githubusercontent.com/sorensandgaard/ob_anonymization_dataloss_d1/main/testing.R"
-    # script_R_file = os.path.join(output_dir, f'testing.R')
-    # create_file(script_R_file,R_script_url)
-    # R_command = f"Rscript {script_R_file} testing_arguments {name}"
-    # a = subprocess.run(R_command.split(),capture_output=True,text=True)
-
-    # content = a.stdout
-
-    # with open(log_file, 'w') as file:
-    #    file.write(content)
+    command = f"{output_dir}/touch test.txt"
+    a = subprocess.run(command.split(),capture_output=True,text=True)
 
 def main():
     # Create argument parser
